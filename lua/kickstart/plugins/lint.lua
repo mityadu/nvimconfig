@@ -42,6 +42,12 @@ return {
     -- lint.linters_by_ft['ruby'] = nil
     -- lint.linters_by_ft['terraform'] = nil
     -- lint.linters_by_ft['text'] = nil
+  { -- Linting
+    'mfussenegger/nvim-lint',
+    event = { 'BufReadPre', 'BufNewFile' },
+    config = function()
+      local lint = require 'lint'
+      lint.linters_by_ft = {}
 
     -- Create autocommand which carries out the actual linting
     -- on the specified events.
